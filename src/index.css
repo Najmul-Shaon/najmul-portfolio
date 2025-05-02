@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Custom padding values for container */
+    --container-padding: 1rem;
+    --container-padding-sm: 2rem;
+    --container-padding-lg: 3rem;
+    --container-padding-xl: 4rem;
+    --container-padding-2xl: 4rem;
+    --container-padding-3xl: 5rem;
+
+    /* Custom breakpoints */
+    --screen-4k: 1980px;
+
+    /* Background gradients */
+    --gradient-radial: radial-gradient(var(--tw-gradient-stops));
+    --gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  }
+}
+
+/* Optional: Custom utility classes using CSS variables */
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: var(--gradient-radial);
+  }
+
+  .bg-gradient-conic {
+    background-image: var(--gradient-conic);
+  }
+
+  /* Example of container padding override */
+  .container {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: var(--container-padding-sm);
+      padding-right: var(--container-padding-sm);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: var(--container-padding-lg);
+      padding-right: var(--container-padding-lg);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      padding-left: var(--container-padding-xl);
+      padding-right: var(--container-padding-xl);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      padding-left: var(--container-padding-2xl);
+      padding-right: var(--container-padding-2xl);
+    }
+  }
+
+  @media (min-width: 1980px) {
+    .container {
+      padding-left: var(--container-padding-3xl);
+      padding-right: var(--container-padding-3xl);
+    }
+  }
+}

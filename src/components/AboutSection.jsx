@@ -1,4 +1,4 @@
-import React from "react";
+
 import { personalData } from "../assets/personalData";
 import profileImg from "../assets/profile_2.png";
 

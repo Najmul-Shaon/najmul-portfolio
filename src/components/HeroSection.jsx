@@ -1,4 +1,4 @@
-import React from "react";
+
 import { personalData } from "../assets/personalData";
 import { Link } from "react-router-dom";
 import { BsGithub, BsLinkedin } from "react-icons/bs";

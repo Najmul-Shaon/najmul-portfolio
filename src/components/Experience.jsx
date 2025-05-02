@@ -46,7 +46,7 @@ const Experience = () => {
                   <div className="p-3 relative">
                     <img
                       src="/blur-23.svg"
-                      alt="Hero"
+                      alt="Hero0"
                       width={1080}
                       height={200}
                       className="absolute bottom-0 opacity-80"
