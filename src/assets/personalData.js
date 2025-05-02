@@ -2,8 +2,11 @@ export const personalData = {
   name: "Najmul Hasan",
   profile: "/profile_2.png",
   designation: "Web Developer",
-  description:
-    "As a Web Developer, I transform ideas into digital masterpieces. With JavaScript at the core, I use React to weave powerful, responsive interfaces and MongoDB to store the heart of every project. Express and Node.js power the backend, ensuring flawless performance. I don’t just code—I craft stories through technology, building dynamic web experiences that resonate and engage. Let's go beyond development and create web experiences that people remember.",
+  description: [
+    "Hi! I’m Najmul Hasan, a passionate Web Developer who sees coding as more than a skill—it’s a creative way to turn ideas into reality. I love building scalable, user-friendly applications and constantly explore new technologies to stay sharp.",
+    "Bugs? I welcome them. They’re like my “soft drinks”—fueling growth, sharpening my skills, and keeping the journey exciting. Whether it’s full-stack development or learning something new, I’m always up for a challenge.",
+    "Let’s code together and turn bold ideas into reality!",
+  ],
   email: "najmul.nh.shaon@gmail.com",
   phone: "+88 01721 933810",
   address: "Mohammadpur, Dhaka, Bangladesh - 1207",

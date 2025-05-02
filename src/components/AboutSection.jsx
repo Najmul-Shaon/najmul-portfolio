@@ -1,4 +1,3 @@
-
 import { personalData } from "../assets/personalData";
 import profileImg from "../assets/profile_2.png";
 
@@ -17,7 +16,9 @@ const AboutSection = () => {
             Who I am?
           </p>
           <p className="text-gray-200 text-sm lg:text-lg">
-            {personalData.description}
+            {personalData.description.map((item, idx) => (
+              <p key={idx} className="text-justify mb-4">{item}</p>
+            ))}
           </p>
         </div>
         <div className="flex justify-center order-1 lg:order-2">

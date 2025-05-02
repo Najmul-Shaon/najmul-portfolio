@@ -48,9 +48,7 @@ const ContactForm = () => {
       </p>
       <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
         <p className="text-sm text-[#d3d8e8]">
-          {
-            "If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."
-          }
+          {`I'd love to hear from you! If you have any questions, comments or feedback, please use the form below.`}
         </p>
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">

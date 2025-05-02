@@ -19,7 +19,7 @@ const Navbar = () => {
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#about"
             >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 ABOUT
               </div>
             </Link>
@@ -29,7 +29,7 @@ const Navbar = () => {
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#experience"
             >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 EXPERIENCE
               </div>
             </Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#skills"
             >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 SKILLS
               </div>
             </Link>
@@ -49,7 +49,7 @@ const Navbar = () => {
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#education"
             >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 EDUCATION
               </div>
             </Link>
@@ -59,7 +59,7 @@ const Navbar = () => {
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/blog"
             >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 COURSES
               </div>
             </Link>
@@ -69,10 +69,20 @@ const Navbar = () => {
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#projects"
             >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 PROJECTS
               </div>
             </Link>
+          </li>
+          <li>
+            <a
+              className="block px-4 py-2 no-underline outline-none hover:no-underline"
+              href="/#contact"
+            >
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase uppercase">
+                Contact
+              </div>
+            </a>
           </li>
         </ul>
       </div>
