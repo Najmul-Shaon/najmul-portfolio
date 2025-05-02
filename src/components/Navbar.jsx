@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="bg-transparent">
       <div className="flex items-center justify-between py-5">
         <div className="flex flex-shrink-0 items-center">
-          <Link href="/" className=" text-[#16f2b3] text-3xl font-bold">
+          <Link to={"/"} className=" text-[#16f2b3] text-3xl font-bold">
             {`<NAJMUL/>`}
           </Link>
         </div>
@@ -15,64 +15,64 @@ const Navbar = () => {
           id="navbar-default"
         >
           <li>
-            <Link
+            <a
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#about"
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 ABOUT
               </div>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
+            <a
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#experience"
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 EXPERIENCE
               </div>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
+            <a
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#skills"
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 SKILLS
               </div>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
+            <a
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#education"
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 EDUCATION
               </div>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
+            <a
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/blog"
+              href="/#courses"
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 COURSES
               </div>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
+            <a
               className="block px-4 py-2 no-underline outline-none hover:no-underline"
               href="/#projects"
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 PROJECTS
               </div>
-            </Link>
+            </a>
           </li>
           <li>
             <a

@@ -1,12 +1,10 @@
 import { personalData } from "../assets/personalData";
-import { Link } from "react-router-dom";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { FaFacebook, FaHackerrank } from "react-icons/fa";
 import { RiContactsFill } from "react-icons/ri";
 import { MdDownload } from "react-icons/md";
 
 const HeroSection = () => {
-  console.log(personalData);
   return (
     <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
       <img

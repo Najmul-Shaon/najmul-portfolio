@@ -1,5 +1,6 @@
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
+import Courses from "../components/Courses";
 import Education from "../components/Education";
 import Experience from "../components/Experience";
 import Footer from "../components/Footer";
@@ -18,6 +19,7 @@ const RootLayout = () => {
       <Skills />
       <Projects />
       <Education />
+      <Courses />
       <ContactSection />
       <Footer />
     </div>

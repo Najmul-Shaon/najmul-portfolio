@@ -1,7 +1,10 @@
 import Marquee from "react-fast-marquee";
 import { skillsData } from "../assets/data/skills";
 import { skillsImage } from "../assets/data/skill-image";
+
 const Skills = () => {
+  console.log(skillsImage("HTML"));
+
   return (
     <div
       id="skills"
@@ -49,7 +52,7 @@ const Skills = () => {
                 <div className="flex flex-col items-center justify-center gap-3 p-6">
                   <div className="h-8 sm:h-10">
                     <img
-                      src={skillsImage(skill)?.src}
+                      src={skillsImage(skill)}
                       alt={skill}
                       width={40}
                       height={40}

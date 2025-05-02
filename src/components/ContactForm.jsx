@@ -4,12 +4,10 @@ import Swal from "sweetalert2";
 
 const ContactForm = () => {
   const [result, setResult] = useState("");
-  console.log(result);
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending....");
     const formData = new FormData(event.target);
-    console.log(import.meta.env.VITE_WEB3_ACCESS_KEY);
 
     formData.append("access_key", import.meta.env.VITE_WEB3_ACCESS_KEY);
 
