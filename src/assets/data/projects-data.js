@@ -64,7 +64,7 @@ export const projectsData = [
   },
   {
     id: 4,
-    name: "Assessly – Video Courses & Exam Certification Platform",
+    name: "Assessly – Online Courses & Exam Management Platform",
     description:
       "Assessly is an online exam management platform designed to streamline the creation, participation, and evaluation of exams. It supports two types of exams: Single Exams, which require a fee and are accessible to verified students, and Group Exams, which mentors can create and secure with passwords for group participation.",
     tools: [
