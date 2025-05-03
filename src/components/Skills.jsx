@@ -3,8 +3,6 @@ import { skillsData } from "../assets/data/skills";
 import { skillsImage } from "../assets/data/skill-image";
 
 const Skills = () => {
-  console.log(skillsImage("HTML"));
-
   return (
     <div
       id="skills"
