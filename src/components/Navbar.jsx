@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const Navbar = () => {
   return (
@@ -15,75 +16,96 @@ const Navbar = () => {
           id="navbar-default"
         >
           <li>
-            <a
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#about"
+            <ScrollLink
+              className="block px-4 py-2 no-underline outline-none hover:no-underline cursor-pointer"
+              to="about"
+              offset={-50}
+              duration={500}
+              smooth={true}
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 ABOUT
               </div>
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#experience"
+            <ScrollLink
+              className="block px-4 py-2 no-underline outline-none hover:no-underline cursor-pointer"
+              to="experience"
+              offset={-50}
+              duration={500}
+              smooth={true}
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 EXPERIENCE
               </div>
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#skills"
+            <ScrollLink
+              className="block px-4 py-2 no-underline outline-none hover:no-underline cursor-pointer"
+              to="skills"
+              offset={-50}
+              duration={500}
+              smooth={true}
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 SKILLS
               </div>
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#projects"
+            <ScrollLink
+              className="block px-4 py-2 no-underline outline-none hover:no-underline cursor-pointer"
+              to="projects"
+              offset={-50}
+              duration={500}
+              smooth={true}
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 Projects
               </div>
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#education"
+            <ScrollLink
+              className="block px-4 py-2 no-underline outline-none hover:no-underline cursor-pointer"
+              to="education"
+              smooth={true}
+              duration={500}
+              offset={-50}
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 EDUCATION
               </div>
-            </a>
+            </ScrollLink>
           </li>
           <li>
-            <a
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#courses"
+            <ScrollLink
+              className="block px-4 py-2 no-underline outline-none hover:no-underline cursor-pointer"
+              to="courses"
+              offset={-50}
+              duration={500}
+              smooth={true}
             >
               <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 COURSES
               </div>
-            </a>
+            </ScrollLink>
           </li>
 
           <li>
-            <a
-              className="block px-4 py-2 no-underline outline-none hover:no-underline"
-              href="/#contact"
+            <ScrollLink
+              className="block px-4 py-2 no-underline outline-none hover:no-underline cursor-pointer"
+              to="contact"
+              offset={-50}
+              duration={500}
+              smooth={true}
             >
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase uppercase">
+              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600 uppercase">
                 Contact
               </div>
-            </a>
+            </ScrollLink>
           </li>
         </ul>
       </div>
