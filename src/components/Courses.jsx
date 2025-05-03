@@ -1,7 +1,7 @@
-import { educations } from "../assets/data/educations";
+import { courses } from "../assets/data/courses";
 
 import { BsPersonWorkspace } from "react-icons/bs";
-import lottieFile from "../assets/lottie/study.json";
+import lottieFile from "../assets/lottie/course.json";
 import AnimationLottie from "./Animation-lottie";
 import GlowCard from "./GlowCard";
 const Courses = () => {
@@ -35,9 +35,9 @@ const Courses = () => {
 
       <div className="py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          <div>
+          <div className="order-2 md:order-none">
             <div className="flex flex-col gap-6">
-              {educations.map((education) => (
+              {courses.map((education) => (
                 <GlowCard
                   key={education.id}
                   identifier={`education-${education.id}`}
@@ -73,7 +73,7 @@ const Courses = () => {
               ))}
             </div>
           </div>
-          <div className="flex justify-center items-start">
+          <div className="flex justify-center items-start order-1 md:order-none">
             <div className="w-3/4 h-3/4">
               <AnimationLottie animationPath={lottieFile} />
             </div>
