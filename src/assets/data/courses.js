@@ -10,5 +10,6 @@ export const courses = [
     title: "Complete Web Development",
     duration: "Jun 2024 - Jan 2025",
     institution: "Programming Hero",
+    reward: `Awarded "Black Belt" for top performance.`,
   },
 ];

@@ -13,11 +13,7 @@ export const personalData = {
   github: "https://github.com/Najmul-Shaon",
   facebook: "https://www.facebook.com/najmulshaonnhs/",
   linkedIn: "https://www.linkedin.com/in/najmul-shaon",
-  twitter: "https://twitter.com/said7388",
-  stackOverflow: "https://stackoverflow.com/users/16840768/abu-said",
-  leetcode: "https://leetcode.com/said3812/",
   hackerRank: "https://www.hackerrank.com/profile/najmul_nh_shaon",
-  devUsername: "said7388",
   resume:
     "https://drive.google.com/file/d/1rdkM2P60rZGpgudn_d6Ii0TkQd8zK04m/view?usp=sharing",
 };

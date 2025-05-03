@@ -16,6 +16,18 @@ const ProjectCard = ({ project }) => {
         <p className="text-center ml-3 text-[#16f2b3] text-base lg:text-xl">
           {project.name}
         </p>
+
+        <div className="flex  justify-center items-center gap-6 pt-2">
+          {"{"}
+          <a target="_blank" className="text-amber-300" href={project?.demo}>
+            "Live"
+          </a>{" "}
+          {","}
+          <a target="_blank" className="text-orange-400" href={project?.code}>
+            "Code"
+          </a>
+          {"}"}
+        </div>
       </div>
       <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
         <code className="font-mono text-xs md:text-sm lg:text-base">

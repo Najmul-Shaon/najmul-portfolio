@@ -66,6 +66,11 @@ const Courses = () => {
                         <p className="text-sm sm:text-base">
                           {education.institution}
                         </p>
+                        {education?.reward && (
+                          <p className="text-sm sm:text-base">
+                            {education.reward}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
