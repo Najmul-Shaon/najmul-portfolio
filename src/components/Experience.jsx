@@ -4,13 +4,12 @@ import experience from "../assets/lottie/code.json";
 import { experiences } from "../assets/data/experience";
 import AnimationLottie from "./Animation-lottie";
 import GlowCard from "./GlowCard";
-import { BsPersonWorkspace, BsChevronDown } from "react-icons/bs";
+import { BsPersonWorkspace, BsChevronDown, BsClockHistory } from "react-icons/bs";
 
 const Experience = () => {
   const [expandedId, setExpandedId] = useState(null);
 
   const toggleExpand = (id) => {
-    console.log("clicked, id:", id);
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
@@ -38,8 +37,8 @@ const Experience = () => {
       </div>
 
       <div className="py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="flex justify-center items-start">
+        <div className="grid grid-cols-1 items-start lg:grid-cols-2 gap-8 lg:gap-16">
+          <div className="flex justify-center items-start lg:sticky lg:top-24 lg:self-start">
             <div className="w-full h-full">
               <AnimationLottie animationPath={experience} />
             </div>
@@ -48,9 +47,15 @@ const Experience = () => {
           <div>
             <div className="flex flex-col gap-6">
               {experiences
-                ?.filter((experience) => experience?.active)
-                ?.sort((a, b) => (a?.rank ?? 999) - (b?.rank ?? 999))
-                ?.map((experience) => {
+  ?.filter((experience) => experience?.active)
+  ?.sort((a, b) => {
+    if (a?.rank == null && b?.rank == null) return 0;
+    if (a?.rank == null) return 1;
+    if (b?.rank == null) return -1;
+
+    return b.rank - a.rank;
+  })
+  ?.map((experience) => {
                   const isExpanded = expandedId === experience?.id;
                   const hasDescription = experience?.description?.length > 0;
 
@@ -67,13 +72,30 @@ const Experience = () => {
                           height={200}
                           className="absolute bottom-0 opacity-80"
                         />
+
+                        {experience?.experienceYears && (
+                          <div className="absolute top-3 right-3 z-[1] flex items-center gap-1.5 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 py-1 shadow-lg shadow-pink-500/20">
+                            <BsClockHistory
+                              size={11}
+                              className="text-white"
+                            />
+                            <span className="text-[10px] sm:text-xs font-semibold text-white tracking-wide">
+                              {experience.experienceYears}
+                            </span>
+                          </div>
+                        )}
+
                         <div className="flex justify-center items-center gap-2">
                           <p className="text-xs sm:text-sm text-[#16f2b3]">
                             {experience?.duration}
                           </p>
-                          {experience?.current && (
-                            <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-[#16f2b3]/10 text-[#16f2b3] border border-[#16f2b3]/40 uppercase">
-                              Present
+                          {experience?.ongoing && (
+                            <span className="flex items-center gap-1.5 text-[10px] sm:text-xs px-2.5 py-1 rounded-full bg-[#16f2b3] text-[#0a0d1f] font-semibold uppercase tracking-wide">
+                              <span className="relative flex h-1.5 w-1.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0a0d1f] opacity-60"></span>
+                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0a0d1f]"></span>
+                              </span>
+                              Ongoing
                             </span>
                           )}
                         </div>
@@ -113,15 +135,10 @@ const Experience = () => {
                               onClick={() => toggleExpand(experience?.id)}
                               className="relative z-10 flex items-center gap-1.5 text-xs sm:text-sm text-[#16f2b3] hover:gap-2.5 transition-all duration-200"
                             >
-                              <span>
-                                {isExpanded ? "Hide details" : "View details"}
-                              </span>
+                              <span>{isExpanded ? "Hide details" : "View details"}</span>
                               <motion.span
                                 animate={{ rotate: isExpanded ? 180 : 0 }}
-                                transition={{
-                                  duration: 0.25,
-                                  ease: "easeInOut",
-                                }}
+                                transition={{ duration: 0.25, ease: "easeInOut" }}
                                 className="flex items-center"
                               >
                                 <BsChevronDown size={12} />
@@ -135,23 +152,18 @@ const Experience = () => {
                                   initial={{ height: 0, opacity: 0 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
-                                  transition={{
-                                    duration: 0.3,
-                                    ease: "easeInOut",
-                                  }}
+                                  transition={{ duration: 0.3, ease: "easeInOut" }}
                                   className="overflow-hidden"
                                 >
                                   <ul className="mt-3 flex flex-col gap-1.5 list-disc list-inside">
-                                    {experience.description.map(
-                                      (point, index) => (
-                                        <li
-                                          key={index}
-                                          className="text-xs sm:text-sm text-[#d3d8e8]"
-                                        >
-                                          {point}
-                                        </li>
-                                      ),
-                                    )}
+                                    {experience.description.map((point, index) => (
+                                      <li
+                                        key={index}
+                                        className="text-xs sm:text-sm text-[#d3d8e8]"
+                                      >
+                                        {point}
+                                      </li>
+                                    ))}
                                   </ul>
                                 </motion.div>
                               )}
