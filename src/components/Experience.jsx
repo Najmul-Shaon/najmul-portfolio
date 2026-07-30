@@ -1,10 +1,19 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import experience from "../assets/lottie/code.json";
 import { experiences } from "../assets/data/experience";
 import AnimationLottie from "./Animation-lottie";
 import GlowCard from "./GlowCard";
-import { BsPersonWorkspace } from "react-icons/bs";
+import { BsPersonWorkspace, BsChevronDown } from "react-icons/bs";
 
 const Experience = () => {
+  const [expandedId, setExpandedId] = useState(null);
+
+  const toggleExpand = (id) => {
+    console.log("clicked, id:", id);
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
+
   return (
     <div
       id="experience"
@@ -38,40 +47,121 @@ const Experience = () => {
 
           <div>
             <div className="flex flex-col gap-6">
-              {experiences.map((experience) => (
-                <GlowCard
-                  key={experience.id}
-                  identifier={`experience-${experience.id}`}
-                >
-                  <div className="p-3 relative">
-                    <img
-                      src="/blur-23.svg"
-                      alt="Hero"
-                      width={1080}
-                      height={200}
-                      className="absolute bottom-0 opacity-80"
-                    />
-                    <div className="flex justify-center">
-                      <p className="text-xs sm:text-sm text-[#16f2b3]">
-                        {experience.duration}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-x-8 px-3 py-5">
-                      <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                        <BsPersonWorkspace size={36} />
+              {experiences
+                ?.filter((experience) => experience?.active)
+                ?.sort((a, b) => (a?.rank ?? 999) - (b?.rank ?? 999))
+                ?.map((experience) => {
+                  const isExpanded = expandedId === experience?.id;
+                  const hasDescription = experience?.description?.length > 0;
+
+                  return (
+                    <GlowCard
+                      key={experience?.id}
+                      identifier={`experience-${experience?.id}`}
+                    >
+                      <div className="p-3 relative">
+                        <img
+                          src="/blur-23.svg"
+                          alt="Hero"
+                          width={1080}
+                          height={200}
+                          className="absolute bottom-0 opacity-80"
+                        />
+                        <div className="flex justify-center items-center gap-2">
+                          <p className="text-xs sm:text-sm text-[#16f2b3]">
+                            {experience?.duration}
+                          </p>
+                          {experience?.current && (
+                            <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-[#16f2b3]/10 text-[#16f2b3] border border-[#16f2b3]/40 uppercase">
+                              Present
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-x-8 px-3 py-5">
+                          <div className="text-violet-500 transition-all duration-300 hover:scale-125">
+                            {experience?.companyLogo ? (
+                              <img
+                                src={experience.companyLogo}
+                                alt={experience?.company}
+                                className="w-9 h-9 object-contain rounded-md"
+                              />
+                            ) : (
+                              <BsPersonWorkspace size={36} />
+                            )}
+                          </div>
+                          <div>
+                            <p className="text-base sm:text-xl mb-2 font-medium uppercase">
+                              {experience?.title}
+                            </p>
+                            <p className="text-sm sm:text-base">
+                              {experience?.company}
+                            </p>
+
+                            {experience?.location && (
+                              <p className="text-xs sm:text-sm text-[#8f9bba] mt-1">
+                                {experience.location}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+
+                        {hasDescription && (
+                          <div className="px-3 pb-3">
+                            <button
+                              type="button"
+                              onClick={() => toggleExpand(experience?.id)}
+                              className="relative z-10 flex items-center gap-1.5 text-xs sm:text-sm text-[#16f2b3] hover:gap-2.5 transition-all duration-200"
+                            >
+                              <span>
+                                {isExpanded ? "Hide details" : "View details"}
+                              </span>
+                              <motion.span
+                                animate={{ rotate: isExpanded ? 180 : 0 }}
+                                transition={{
+                                  duration: 0.25,
+                                  ease: "easeInOut",
+                                }}
+                                className="flex items-center"
+                              >
+                                <BsChevronDown size={12} />
+                              </motion.span>
+                            </button>
+
+                            <AnimatePresence initial={false}>
+                              {isExpanded && (
+                                <motion.div
+                                  key="content"
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{
+                                    duration: 0.3,
+                                    ease: "easeInOut",
+                                  }}
+                                  className="overflow-hidden"
+                                >
+                                  <ul className="mt-3 flex flex-col gap-1.5 list-disc list-inside">
+                                    {experience.description.map(
+                                      (point, index) => (
+                                        <li
+                                          key={index}
+                                          className="text-xs sm:text-sm text-[#d3d8e8]"
+                                        >
+                                          {point}
+                                        </li>
+                                      ),
+                                    )}
+                                  </ul>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        )}
                       </div>
-                      <div>
-                        <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                          {experience.title}
-                        </p>
-                        <p className="text-sm sm:text-base">
-                          {experience.company}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </GlowCard>
-              ))}
+                    </GlowCard>
+                  );
+                })}
             </div>
           </div>
         </div>
