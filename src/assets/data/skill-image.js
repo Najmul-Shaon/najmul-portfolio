@@ -86,25 +86,34 @@ import github from "../svg/skills/github.svg";
 import postman from "../svg/skills/postman.svg";
 import axios from "../svg/skills/axios.svg";
 import framermotion from "../svg/skills/framermotion.svg";
+import claude from "../svg/skills/claude.svg";
+import chatgpt from "../svg/skills/chatgpt.svg";
+import githubCopilot from "../svg/skills/githubCopilot.svg";
+import gemini from "../svg/skills/gemini.svg";
+import kimi from "../svg/skills/kimi.svg";
+import shopify from "../svg/skills/shopify.svg";
+import elementor from "../svg/skills/elementor.svg";
+import prisma from "../svg/skills/prisma.svg";
 
 export const skillsImage = (skill) => {
+  console.log("skill", skill);
   const skillID = skill.toLowerCase();
   switch (skillID) {
     case "gcp":
       return gcp;
     case "axios":
       return axios;
-    case "framermotion":
+    case "framer motion":
       return framermotion;
     case "html":
       return html;
     case "postman":
       return postman;
-    case "express":
+    case "express.js":
       return express;
     case "github":
       return github;
-    case "nodejs":
+    case "node.js":
       return nodejs;
     case "photoshop":
       return photoshop;
@@ -122,7 +131,7 @@ export const skillsImage = (skill) => {
       return angular;
     case "javascript":
       return javascript;
-    case "next js":
+    case "next.js":
       return nextJS;
     case "nuxt js":
       return nuxtJS;
@@ -150,9 +159,9 @@ export const skillsImage = (skill) => {
       return mysql;
     case "postgresql":
       return postgresql;
-    case "tailwind":
+    case "tailwind css":
       return tailwind;
-    case "vitejs":
+    case "vite":
       return vitejs;
     case "vuetifyjs":
       return vuetifyjs;
@@ -266,6 +275,22 @@ export const skillsImage = (skill) => {
       return sqlalchemy;
     case "fastapi":
       return fastapi;
+      case "claude":
+      return claude;
+      case "chatgpt":
+      return chatgpt;
+      case "github copilot":
+      return githubCopilot;
+      case "gemini":
+      return gemini;
+      case "kimi":
+      return kimi;
+      case "shopify":
+      return shopify;
+      case "elementor":
+      return elementor;
+      case "prisma":
+      return prisma;
     default:
       break;
   }

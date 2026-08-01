@@ -46,6 +46,35 @@ const LogoSkillCard = ({ skill }) => (
   </div>
 );
 
+const LearningSkillCard = ({ skill }) => (
+  <div className="flex flex-col items-center justify-center transition-all duration-300 rounded-lg group relative hover:scale-105 cursor-pointer">
+    <div className="absolute -top-2 -right-2 z-[1] flex items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 shadow-md shadow-amber-500/30">
+      <span className="relative flex h-1.5 w-1.5">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0a0d1f] opacity-60"></span>
+        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0a0d1f]"></span>
+      </span>
+      <span className="text-[9px] font-semibold text-[#0a0d1f] uppercase tracking-wide">
+        Learning
+      </span>
+    </div>
+    <div className="h-full w-full rounded-lg border border-dashed border-amber-400/40 bg-[#11152c] group-hover:border-amber-400 transition-all duration-300">
+      <div className="flex flex-col items-center justify-center gap-3 p-4 sm:p-6 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="h-8 sm:h-10">
+          <img
+            src={skillsImage(skill)}
+            alt={skill}
+            width={40}
+            height={40}
+            loading="lazy"
+            className="h-full w-auto rounded-lg"
+          />
+        </div>
+        <p className="text-white text-xs sm:text-sm text-center">{skill}</p>
+      </div>
+    </div>
+  </div>
+);
+
 const SoftSkillCard = ({ skill }) => {
   const Icon = getSoftSkillIcon(skill);
   return (
@@ -95,6 +124,7 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto flex flex-col gap-10">
           {skillsData?.map((group) => {
             const isSoftSkills = group?.category === "Soft Skills";
+            const isLearning = group?.category === "Currently Learning";
 
             return (
               <div key={group?.category}>
@@ -106,13 +136,15 @@ const Skills = () => {
                 </div>
 
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-5">
-                  {group?.skills?.map((skill) =>
-                    isSoftSkills ? (
-                      <SoftSkillCard key={skill} skill={skill} />
-                    ) : (
-                      <LogoSkillCard key={skill} skill={skill} />
-                    )
-                  )}
+                  {group?.skills?.map((skill) => {
+                    if (isLearning) {
+                      return <LearningSkillCard key={skill} skill={skill} />;
+                    }
+                    if (isSoftSkills) {
+                      return <SoftSkillCard key={skill} skill={skill} />;
+                    }
+                    return <LogoSkillCard key={skill} skill={skill} />;
+                  })}
                 </div>
               </div>
             );
