@@ -1,22 +1,71 @@
 export const skillsData = [
-  "Typescript",
-  "Javascript",
-  "Next JS",
-  "React",
-  "NodeJS",
-  "MongoDB",
-  "Express",
-  "HTML",
-  "CSS",
-  "Tailwind",
-  "Bootstrap",
-  "Axios",
-  "ViteJS",
-  "Firebase",
-  "Git",
-  "Github",
-  "Postman",
-  "FramerMotion",
+  {
+    category: "Frontend",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "Next.js",
+      "React",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Framer Motion",
+    ],
+  },
+  {
+    category: "Backend",
+    skills: [
+      "Node.js",
+      "Express.js",
+    ],
+  },
+  {
+    category: "Database",
+    skills: [
+      "MongoDB",
+    ],
+  },
+  {
+    category: "Tools",
+    skills: [
+      "Git",
+      "GitHub",
+      "Vite",
+      "Firebase",
+      "Postman",
+      "Axios",
+    ],
+  },
+  {
+  category: "AI Tools",
+  skills: [
+    "ChatGPT",
+    "Claude",
+    "GitHub Copilot",
+    "Gemini",
+    "Kimi",
+  ],
+},
+  {
+    category: "Platforms",
+    skills: [
+      "WordPress",
+      "Shopify",
+      "Elementor",
+    ],
+  },
+   {
+    category: "Soft Skills",
+    skills: [
+      "Communication",
+      "Teamwork",
+      "Time Management",
+      "Problem Solving",
+      "Adaptability",
+      "Leadership",
+    ],
+  },
 ];
 
 // Choose your skills from below. Make sure it's in the same format and spelled correctly.
