@@ -57,7 +57,7 @@ export const skillsData = [
   },
    {
     category: "Currently Learning",
-    skills: ["PHP", "MySQL", "Prisma"],
+    skills: ["PHP", "MySQL", "Prisma","Laravel"],
   },
    {
     category: "Soft Skills",

@@ -61,7 +61,7 @@ const HeroSection = () => {
               href="#contact"
               className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600"
             >
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
+              <button className="cursor-pointer px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
                 <span>Contact me</span>
                 <RiContactsFill size={16} />
               </button>
@@ -144,6 +144,30 @@ const HeroSection = () => {
                 <span className="text-amber-300">WordPress</span>
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Shopify</span>
+                <span className="text-gray-400">{"'],"}</span>
+              </div>
+              <div className="ml-8 lg:ml-16 mr-2">
+                <span className=" text-white">aiTools:</span>
+                <span className="text-gray-400">{`['`}</span>
+                <span className="text-amber-300">ChatGPT</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Claude</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">GitHub Copilot</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Gemini</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Kimi</span>
+                <span className="text-gray-400">{"'],"}</span>
+              </div>
+              <div className="ml-8 lg:ml-16 mr-2">
+                <span className=" text-white">currentlyLearning:</span>
+                <span className="text-gray-400">{`['`}</span>
+                <span className="text-amber-300">PHP</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">MySQL</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Prisma</span>
                 <span className="text-gray-400">{"']"}</span>
               </div>
               <div>
@@ -157,6 +181,20 @@ const HeroSection = () => {
                 <span className="text-amber-300">Performance</span>
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Problem Solving</span>
+                <span className="text-gray-400">{"'],"}</span>
+              </div>
+              <div className="ml-4 lg:ml-8 mr-2">
+                <span className=" text-white">softSkills:</span>
+                <span className="text-gray-400">{`['`}</span>
+                <span className="text-amber-300">Communication</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Teamwork</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Time Management</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Adaptability</span>
+                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-amber-300">Leadership</span>
                 <span className="text-gray-400">{"'],"}</span>
               </div>
               <div>

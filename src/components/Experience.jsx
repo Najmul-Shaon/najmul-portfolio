@@ -4,7 +4,57 @@ import experience from "../assets/lottie/code.json";
 import { experiences } from "../assets/data/experience";
 import AnimationLottie from "./Animation-lottie";
 import GlowCard from "./GlowCard";
-import { BsPersonWorkspace, BsChevronDown, BsClockHistory } from "react-icons/bs";
+import {
+  BsPersonWorkspace,
+  BsChevronDown,
+  BsClockHistory,
+  BsLightbulb,
+  BsTrophy,
+  BsRocketTakeoff,
+} from "react-icons/bs";
+import {
+  FaLightbulb,
+  FaChartLine,
+  FaUsers,
+  FaComments,
+  FaSyncAlt,
+  FaSearch,
+  FaRegClock,
+  FaGraduationCap,
+  FaBrain,
+  FaFlag,
+  FaHeadset,
+  FaClipboardList,
+  FaTools,
+  FaUserTie,
+  FaSeedling,
+} from "react-icons/fa";
+import { HiSparkles } from "react-icons/hi";
+
+// Maps each known soft skill to a representative icon (no brand logos exist
+// for traits, so icons stand in). Anything unmapped falls back to a generic icon.
+const SOFT_SKILL_ICONS = {
+  "problem solving": FaLightbulb,
+  "analytical thinking": FaChartLine,
+  "team collaboration": FaUsers,
+  communication: FaComments,
+  adaptability: FaSyncAlt,
+  "attention to detail": FaSearch,
+  "time management": FaRegClock,
+  "continuous learning": FaGraduationCap,
+  "critical thinking": FaBrain,
+  ownership: FaFlag,
+  "client communication": FaHeadset,
+  "requirement analysis": FaClipboardList,
+  troubleshooting: FaTools,
+  leadership: FaUserTie,
+  "growth mindset": FaSeedling,
+};
+
+const getSoftSkillIcon = (skill) => {
+  const key = skill?.toLowerCase();
+  return SOFT_SKILL_ICONS[key] || HiSparkles;
+};
 
 const Experience = () => {
   const [expandedId, setExpandedId] = useState(null);
@@ -47,17 +97,22 @@ const Experience = () => {
           <div>
             <div className="flex flex-col gap-6">
               {experiences
-  ?.filter((experience) => experience?.active)
-  ?.sort((a, b) => {
-    if (a?.rank == null && b?.rank == null) return 0;
-    if (a?.rank == null) return 1;
-    if (b?.rank == null) return -1;
+                ?.filter((experience) => experience?.active)
+                ?.sort((a, b) => {
+                  if (a?.rank == null && b?.rank == null) return 0;
+                  if (a?.rank == null) return 1;
+                  if (b?.rank == null) return -1;
 
-    return b.rank - a.rank;
-  })
-  ?.map((experience) => {
+                  return b.rank - a.rank;
+                })
+                ?.map((experience) => {
                   const isExpanded = expandedId === experience?.id;
                   const hasDescription = experience?.description?.length > 0;
+                  const hasLearnings = experience?.keyLearnings?.length > 0;
+                  const hasSoftSkills = experience?.softSkills?.length > 0;
+                  const hasOutcome = Boolean(experience?.outcome);
+                  const hasCompletedProjects =
+                    experience?.completedProjects?.length > 0;
 
                   return (
                     <GlowCard
@@ -75,12 +130,9 @@ const Experience = () => {
 
                         {experience?.experienceYears && (
                           <div className="absolute top-3 right-3 z-[1] flex items-center gap-1.5 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 py-1 shadow-lg shadow-pink-500/20">
-                            <BsClockHistory
-                              size={11}
-                              className="text-white"
-                            />
+                            <BsClockHistory size={11} className="text-white" />
                             <span className="text-[10px] sm:text-xs font-semibold text-white tracking-wide">
-                              {experience.experienceYears}
+                              {experience?.experienceYears}
                             </span>
                           </div>
                         )}
@@ -104,7 +156,7 @@ const Experience = () => {
                           <div className="text-violet-500 transition-all duration-300 hover:scale-125">
                             {experience?.companyLogo ? (
                               <img
-                                src={experience.companyLogo}
+                                src={experience?.companyLogo}
                                 alt={experience?.company}
                                 className="w-9 h-9 object-contain rounded-md"
                               />
@@ -122,12 +174,98 @@ const Experience = () => {
 
                             {experience?.location && (
                               <p className="text-xs sm:text-sm text-[#8f9bba] mt-1">
-                                {experience.location}
+                                {experience?.location}
                               </p>
                             )}
                           </div>
                         </div>
 
+                        {/* Everything below is always visible on the card.
+                            Only the description sits behind the toggle further down. */}
+
+                        {hasOutcome && (
+                          <div className="mx-3 mb-3 flex gap-2.5 rounded-lg border border-[#16f2b3]/25 bg-[#16f2b3]/[0.06] px-3.5 py-3">
+                            <BsTrophy
+                              size={16}
+                              className="text-[#16f2b3] flex-shrink-0 mt-0.5"
+                            />
+                            <p className="text-xs sm:text-sm text-[#d3d8e8] leading-relaxed">
+                              {experience?.outcome}
+                            </p>
+                          </div>
+                        )}
+
+                        {hasCompletedProjects && (
+                          <div className="mx-3 mb-3">
+                            <div className="flex items-center gap-1.5 mb-2">
+                              <BsRocketTakeoff size={12} className="text-pink-400" />
+                              <span className="text-[11px] sm:text-xs font-semibold text-pink-400 uppercase tracking-wide">
+                                Completed Projects
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {experience?.completedProjects?.map(
+                                (item, index) => (
+                                  <span
+                                    key={index}
+                                    className="flex items-center gap-1.5 text-[10px] sm:text-xs px-2.5 py-1 rounded-full border border-pink-400/30 bg-pink-400/[0.08] text-pink-200"
+                                  >
+                                    <BsRocketTakeoff size={11} />
+                                    {item}
+                                  </span>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        )}
+
+                        {hasLearnings && (
+                          <div className="mx-3 mb-3">
+                            <div className="flex items-center gap-1.5 mb-2">
+                              <BsLightbulb size={13} className="text-amber-400" />
+                              <span className="text-[11px] sm:text-xs font-semibold text-amber-400 uppercase tracking-wide">
+                                What I Learned
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {experience?.keyLearnings?.map((item, index) => (
+                                <span
+                                  key={index}
+                                  className="text-[10px] sm:text-xs px-2.5 py-1 rounded-full border border-amber-400/30 bg-amber-400/[0.08] text-amber-200"
+                                >
+                                  {item}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {hasSoftSkills && (
+                          <div className="mx-3 mb-3">
+                            <div className="flex items-center gap-1.5 mb-2">
+                              <FaUsers size={12} className="text-violet-400" />
+                              <span className="text-[11px] sm:text-xs font-semibold text-violet-400 uppercase tracking-wide">
+                                Skills Demonstrated
+                              </span>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {experience?.softSkills?.map((skill, index) => {
+                                const Icon = getSoftSkillIcon(skill);
+                                return (
+                                  <span
+                                    key={index}
+                                    className="flex items-center gap-1.5 text-[10px] sm:text-xs px-2.5 py-1 rounded-full border border-violet-400/30 bg-violet-400/[0.08] text-violet-200"
+                                  >
+                                    <Icon size={10} />
+                                    {skill}
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Only description lives behind the toggle */}
                         {hasDescription && (
                           <div className="px-3 pb-3">
                             <button
@@ -135,7 +273,9 @@ const Experience = () => {
                               onClick={() => toggleExpand(experience?.id)}
                               className="relative z-10 flex items-center gap-1.5 text-xs sm:text-sm text-[#16f2b3] hover:gap-2.5 transition-all duration-200"
                             >
-                              <span>{isExpanded ? "Hide details" : "View details"}</span>
+                              <span>
+                                {isExpanded ? "Hide more" : "View more"}
+                              </span>
                               <motion.span
                                 animate={{ rotate: isExpanded ? 180 : 0 }}
                                 transition={{ duration: 0.25, ease: "easeInOut" }}
@@ -156,14 +296,16 @@ const Experience = () => {
                                   className="overflow-hidden"
                                 >
                                   <ul className="mt-3 flex flex-col gap-1.5 list-disc list-inside">
-                                    {experience.description.map((point, index) => (
-                                      <li
-                                        key={index}
-                                        className="text-xs sm:text-sm text-[#d3d8e8]"
-                                      >
-                                        {point}
-                                      </li>
-                                    ))}
+                                    {experience?.description?.map(
+                                      (point, index) => (
+                                        <li
+                                          key={index}
+                                          className="text-xs sm:text-sm text-[#d3d8e8]"
+                                        >
+                                          {point}
+                                        </li>
+                                      )
+                                    )}
                                   </ul>
                                 </motion.div>
                               )}

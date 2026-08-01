@@ -94,6 +94,7 @@ import kimi from "../svg/skills/kimi.svg";
 import shopify from "../svg/skills/shopify.svg";
 import elementor from "../svg/skills/elementor.svg";
 import prisma from "../svg/skills/prisma.svg";
+import laravel from "../svg/skills/laravel.svg";
 
 export const skillsImage = (skill) => {
   console.log("skill", skill);
@@ -291,6 +292,8 @@ export const skillsImage = (skill) => {
       return elementor;
       case "prisma":
       return prisma;
+      case "laravel":
+      return laravel;
     default:
       break;
   }
