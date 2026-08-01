@@ -56,6 +56,10 @@ export const skillsData = [
     ],
   },
    {
+    category: "Currently Learning",
+    skills: ["PHP", "MySQL", "Prisma"],
+  },
+   {
     category: "Soft Skills",
     skills: [
       "Communication",
