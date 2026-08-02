@@ -97,7 +97,6 @@ import prisma from "../svg/skills/prisma.svg";
 import laravel from "../svg/skills/laravel.svg";
 
 export const skillsImage = (skill) => {
-  console.log("skill", skill);
   const skillID = skill.toLowerCase();
   switch (skillID) {
     case "gcp":
