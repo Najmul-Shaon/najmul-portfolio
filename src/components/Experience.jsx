@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import experience from "../assets/lottie/code.json";
 import { experiences } from "../assets/data/experience";
 import AnimationLottie from "./Animation-lottie";
 import GlowCard from "./GlowCard";
@@ -12,49 +11,8 @@ import {
   BsTrophy,
   BsRocketTakeoff,
 } from "react-icons/bs";
-import {
-  FaLightbulb,
-  FaChartLine,
-  FaUsers,
-  FaComments,
-  FaSyncAlt,
-  FaSearch,
-  FaRegClock,
-  FaGraduationCap,
-  FaBrain,
-  FaFlag,
-  FaHeadset,
-  FaClipboardList,
-  FaTools,
-  FaUserTie,
-  FaSeedling,
-} from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
-
-// Maps each known soft skill to a representative icon (no brand logos exist
-// for traits, so icons stand in). Anything unmapped falls back to a generic icon.
-const SOFT_SKILL_ICONS = {
-  "problem solving": FaLightbulb,
-  "analytical thinking": FaChartLine,
-  "team collaboration": FaUsers,
-  communication: FaComments,
-  adaptability: FaSyncAlt,
-  "attention to detail": FaSearch,
-  "time management": FaRegClock,
-  "continuous learning": FaGraduationCap,
-  "critical thinking": FaBrain,
-  ownership: FaFlag,
-  "client communication": FaHeadset,
-  "requirement analysis": FaClipboardList,
-  troubleshooting: FaTools,
-  leadership: FaUserTie,
-  "growth mindset": FaSeedling,
-};
-
-const getSoftSkillIcon = (skill) => {
-  const key = skill?.toLowerCase();
-  return SOFT_SKILL_ICONS[key] || HiSparkles;
-};
+import { FaUsers } from "react-icons/fa";
+import { getSoftSkillIcon } from "../assets/data/soft-skill-icons";
 
 const Experience = () => {
   const [expandedId, setExpandedId] = useState(null);
@@ -90,7 +48,7 @@ const Experience = () => {
         <div className="grid grid-cols-1 items-start lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex justify-center items-start lg:sticky lg:top-24 lg:self-start">
             <div className="w-full h-full">
-              <AnimationLottie animationPath={experience} />
+              <AnimationLottie name="code" />
             </div>
           </div>
 

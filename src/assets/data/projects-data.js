@@ -44,7 +44,7 @@ export const projectsData = [
     description:
       "Developed using React.js, TypeScript, and Firebase for authentication (Google). Styled with Tailwind CSS, and integrated Stripe for secure payments. Utilized React Router v7, React Hook Form, TanStack Query, and Axios for efficient routing, form handling, and data fetching. Enhanced UI with Swiper, Lottie, React Icons, Recharts, and SweetAlert2.",
     tools: [
-      "ReacJS",
+      "ReactJS",
       "Tailwind CSS",
       "NodeJS",
       "Express",
@@ -85,7 +85,7 @@ export const projectsData = [
     description:
       "Learn Lounge is a global platform that allows students to engage in group studies, create assignments, and evaluate each other's work. The platform encourages peer learning and knowledge sharing among students, ensuring an interactive and productive educational experience.",
     tools: [
-      "ReacJS",
+      "ReactJS",
       "Tailwind CSS",
       "NodeJS",
       "Express",
@@ -119,7 +119,7 @@ export const projectsData = [
     description:
       "Assessly is an online exam management platform designed to streamline the creation, participation, and evaluation of exams. It supports two types of exams: Single Exams, which require a fee and are accessible to verified students, and Group Exams, which mentors can create and secure with passwords for group participation.",
     tools: [
-      "ReacJS",
+      "ReactJS",
       "Tailwind CSS",
       "NodeJS",
       "Express",

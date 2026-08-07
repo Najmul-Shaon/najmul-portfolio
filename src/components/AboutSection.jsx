@@ -1,5 +1,5 @@
 import { personalData } from "../assets/personalData";
-import profileImg from "../assets/profile_2.png";
+import profileImg from "../assets/profile.webp";
 
 const AboutSection = () => {
   return (

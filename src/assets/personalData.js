@@ -1,6 +1,5 @@
 export const personalData = {
   name: "Najmul Hasan",
-  profile: "/profile_2.png",
   designation: "Web Developer",
   description: [
     "Hi! I’m Najmul Hasan, a passionate Web Developer who sees coding as more than a skill—it’s a creative way to turn ideas into reality. I love building scalable, user-friendly applications and constantly explore new technologies to stay sharp.",

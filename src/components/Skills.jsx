@@ -1,29 +1,28 @@
 import { skillsData } from "../assets/data/skills";
 import { skillsImage } from "../assets/data/skill-image";
-import {
-  FaComments,
-  FaUsers,
-  FaRegClock,
-  FaLightbulb,
-  FaSyncAlt,
-  FaUserTie,
-} from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { getSoftSkillIcon } from "../assets/data/soft-skill-icons";
 
-// Soft skills don't have brand logos, so we map each one to a representative
-// icon instead. Anything not explicitly mapped falls back to a generic icon.
-const SOFT_SKILL_ICONS = {
-  communication: FaComments,
-  teamwork: FaUsers,
-  "time management": FaRegClock,
-  "problem solving": FaLightbulb,
-  adaptability: FaSyncAlt,
-  leadership: FaUserTie,
-};
-
-const getSoftSkillIcon = (skill) => {
-  const key = skill.toLowerCase();
-  return SOFT_SKILL_ICONS[key] || HiSparkles;
+// Renders a brand logo when one exists, otherwise a lettered fallback tile so a
+// missing/unmapped skill icon never shows a broken image.
+const SkillLogo = ({ skill }) => {
+  const icon = skillsImage(skill);
+  if (icon) {
+    return (
+      <img
+        src={icon}
+        alt={skill}
+        width={40}
+        height={40}
+        loading="lazy"
+        className="h-full w-auto rounded-lg"
+      />
+    );
+  }
+  return (
+    <span className="flex h-full aspect-square items-center justify-center rounded-lg bg-[#1f223c] text-sm font-semibold uppercase text-[#16f2b3]">
+      {skill?.charAt(0)}
+    </span>
+  );
 };
 
 const LogoSkillCard = ({ skill }) => (
@@ -31,14 +30,7 @@ const LogoSkillCard = ({ skill }) => (
     <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] group-hover:border-violet-500 transition-all duration-300">
       <div className="flex flex-col items-center justify-center gap-3 p-4 sm:p-6">
         <div className="h-8 sm:h-10">
-          <img
-            src={skillsImage(skill)}
-            alt={skill}
-            width={40}
-            height={40}
-            loading="lazy"
-            className="h-full w-auto rounded-lg"
-          />
+          <SkillLogo skill={skill} />
         </div>
         <p className="text-white text-xs sm:text-sm text-center">{skill}</p>
       </div>
@@ -60,14 +52,7 @@ const LearningSkillCard = ({ skill }) => (
     <div className="h-full w-full rounded-lg border border-dashed border-amber-400/40 bg-[#11152c] group-hover:border-amber-400 transition-all duration-300">
       <div className="flex flex-col items-center justify-center gap-3 p-4 sm:p-6 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
         <div className="h-8 sm:h-10">
-          <img
-            src={skillsImage(skill)}
-            alt={skill}
-            width={40}
-            height={40}
-            loading="lazy"
-            className="h-full w-auto rounded-lg"
-          />
+          <SkillLogo skill={skill} />
         </div>
         <p className="text-white text-xs sm:text-sm text-center">{skill}</p>
       </div>
