@@ -10,49 +10,10 @@ import {
   BsLightbulb,
   BsX,
 } from "react-icons/bs";
-import {
-  FaLightbulb,
-  FaChartLine,
-  FaUsers,
-  FaComments,
-  FaSyncAlt,
-  FaSearch,
-  FaRegClock,
-  FaGraduationCap,
-  FaBrain,
-  FaFlag,
-  FaHeadset,
-  FaClipboardList,
-  FaTools,
-  FaUserTie,
-  FaSeedling,
-} from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { FaUsers } from "react-icons/fa";
 import { skillsImage } from "../assets/data/skill-image";
+import { getSoftSkillIcon } from "../assets/data/soft-skill-icons";
 import GlowCard from "./GlowCard";
-
-const SOFT_SKILL_ICONS = {
-  "problem solving": FaLightbulb,
-  "analytical thinking": FaChartLine,
-  "team collaboration": FaUsers,
-  communication: FaComments,
-  adaptability: FaSyncAlt,
-  "attention to detail": FaSearch,
-  "time management": FaRegClock,
-  "continuous learning": FaGraduationCap,
-  "critical thinking": FaBrain,
-  ownership: FaFlag,
-  "client communication": FaHeadset,
-  "requirement analysis": FaClipboardList,
-  troubleshooting: FaTools,
-  leadership: FaUserTie,
-  "growth mindset": FaSeedling,
-};
-
-const getSoftSkillIcon = (skill) => {
-  const key = skill?.toLowerCase();
-  return SOFT_SKILL_ICONS[key] || HiSparkles;
-};
 
 const ToolTag = ({ tool }) => {
   const icon = skillsImage(tool);
@@ -255,9 +216,17 @@ const ProjectCard = ({ project }) => {
       : [];
 
   useEffect(() => {
-    document.body.style.overflow = isModalOpen ? "hidden" : "unset";
+    if (!isModalOpen) return;
+
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setIsModalOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+
     return () => {
       document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, [isModalOpen]);
 
@@ -344,6 +313,9 @@ const ProjectCard = ({ project }) => {
             >
               <div
                 onClick={(e) => e.stopPropagation()}
+                role="dialog"
+                aria-modal="true"
+                aria-label={project?.name}
                 className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-xl border border-[#2a2e5a] bg-[#0d1224] shadow-2xl shadow-black/50"
               >
                 <button

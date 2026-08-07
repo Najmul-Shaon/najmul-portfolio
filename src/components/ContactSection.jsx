@@ -1,72 +1,118 @@
-import { personalData } from "../assets/data/personal-data";
+import { personalData } from "../assets/personalData";
 import { BiLogoLinkedin } from "react-icons/bi";
-import { CiLocationOn } from "react-icons/ci";
-import { FaEnvelope, FaFacebook, FaHackerrank, FaStackOverflow } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaEnvelope, FaFacebook, FaHackerrank, FaLocationDot } from "react-icons/fa6";
 import { IoLogoGithub, IoMdCall } from "react-icons/io";
 import ContactForm from "./ContactForm";
 
+const CONTACT_DETAILS = [
+  {
+    label: "Email",
+    value: personalData.email,
+    href: `mailto:${personalData.email}`,
+    Icon: FaEnvelope,
+  },
+  {
+    label: "Phone",
+    value: personalData.phone,
+    href: `tel:${personalData.phone.replace(/\s+/g, "")}`,
+    Icon: IoMdCall,
+  },
+  {
+    label: "Location",
+    value: personalData.address,
+    href: null,
+    Icon: FaLocationDot,
+  },
+];
+
+const SOCIAL_LINKS = [
+  { label: "GitHub", href: personalData.github, Icon: IoLogoGithub },
+  { label: "LinkedIn", href: personalData.linkedIn, Icon: BiLogoLinkedin },
+  { label: "HackerRank", href: personalData.hackerRank, Icon: FaHackerrank },
+  { label: "Facebook", href: personalData.facebook, Icon: FaFacebook },
+];
+
+const ContactDetail = ({ label, value, href, Icon }) => {
+  const content = (
+    <>
+      <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-pink-500 to-violet-600 shadow-lg shadow-violet-600/25">
+        <Icon size={18} className="text-white" />
+      </span>
+      <div className="min-w-0">
+        <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#8f9bba]">
+          {label}
+        </p>
+        <p className="break-words text-sm sm:text-base text-[#d3d8e8]">
+          {value}
+        </p>
+      </div>
+    </>
+  );
+
+  const className =
+    "flex items-center gap-4 rounded-xl border border-[#2a2e5a] bg-[#0d1224] p-4 transition-all duration-300 hover:border-[#16f2b3]";
+
+  return href ? (
+    <a href={href} className={`group ${className} no-underline hover:no-underline`}>
+      {content}
+    </a>
+  ) : (
+    <div className={className}>{content}</div>
+  );
+};
+
 const ContactSection = () => {
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-          CONTACT
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
+    <div
+      id="contact"
+      className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]"
+    >
+      <div className="flex justify-center -translate-y-[1px]">
+        <div className="w-3/4">
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent w-full" />
+        </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <ContactForm />
-        <div className="lg:w-3/4 ">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <FaEnvelope
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.email}</span>
-            </p>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <IoMdCall
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.phone}</span>
-            </p>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.address}</span>
-            </p>
-          </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-            <a target="_blank" href={personalData.github}>
-              <IoLogoGithub
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </a>
-            <a target="_blank" href={personalData.linkedIn}>
-              <BiLogoLinkedin
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </a>
 
-            <a target="_blank" href={personalData.hackerRank}>
-              <FaHackerrank
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </a>
-            <a target="_blank" href={personalData.facebook}>
-              <FaFacebook
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </a>
+      <div className="flex justify-center my-5 lg:py-8">
+        <div className="flex items-center">
+          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
+            Contact
+          </span>
+          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+        </div>
+      </div>
+
+      <div className="py-8">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
+          <ContactForm />
+
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-3">
+              {CONTACT_DETAILS.map((detail) => (
+                <ContactDetail key={detail.label} {...detail} />
+              ))}
+            </div>
+
+            <div>
+              <p className="mb-3 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#8f9bba]">
+                Find me on
+              </p>
+              <div className="flex items-center gap-3 sm:gap-4">
+                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-[#2a2e5a] bg-[#0d1224] text-[#16f2b3] transition-all duration-300 hover:scale-110 hover:border-[#16f2b3]"
+                  >
+                    <Icon size={22} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
