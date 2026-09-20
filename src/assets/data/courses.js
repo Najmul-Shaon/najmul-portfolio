@@ -7,21 +7,56 @@ export const courses = [
     description:
       "Advanced full-stack track focused on scalable architecture, type-safe APIs, and production-grade tooling.",
     skills: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Node.js"],
-    active: true,
+    active: false,
     rank: 1,
   },
+{
+  id: 4,
+  title: "Complete Web Development Course",
+  institution: "Programming Hero",
+ duration: "Jun 2024 - Jan 2025",
+  description:
+    "Successfully completed the Complete Web Development Course with rigorous training in JavaScript, HTML, CSS, and React, applying these skills to build several projects.",
+  skills: [
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "React",
+    "Web Development"
+  ],
+     reward: `Awarded "Black Belt" for top performance.`,
+  credentialUrl: "https://drive.google.com/file/d/1E1IRK6Frb8HMjpJOosBeru5I4_j9-UMl/view?usp=sharing",
+  // credentialId: "RESET7-0271",
+  active: true,
+  rank: 4,
+},
   {
-    id: 2,
-    title: "Complete Web Development",
-    institution: "Programming Hero",
-    duration: "Jun 2024 - Jan 2025",
-    description:
-      "Comprehensive MERN-stack program covering frontend, backend, authentication, and deployment.",
-    skills: ["React", "JavaScript", "Node.js", "Express", "MongoDB"],
-    reward: `Awarded "Black Belt" for top performance.`,
-    active: true,
-    rank: 2,
-  },
+  id: 3,
+  title: "Search Engine Optimization (SEO)",
+  institution: "10 Minute School",
+  // duration: "30 hrs",
+  description:
+    "Successfully completed an online course on Search Engine Optimization (SEO), covering SEO fundamentals, keyword research, on-page and off-page SEO, local and technical SEO, AI-assisted content writing, and Google Search Console.",
+  skills: [
+    "Search Engine Optimization (SEO)",
+    "Keyword Research",
+    "On-Page SEO",
+    "Off-Page SEO",
+    "Local SEO",
+    "Technical SEO",
+    "Content Writing",
+    "Google Search Console",
+    "SEO Auditing",
+    "SEO Reporting"
+  ],
+  reward: "Successfully completed the SEO course and earned a certificate of completion.",
+  credentialUrl: "https://drive.google.com/file/d/1EcK4fXjBu1LphRYrru0A_iz3xoSIy-VN/view?usp=sharing",
+  // credentialId: "68a059aef1fff",
+  // logo: "/company-logos/10-minute-school.png",
+  active: true,
+  rank: 3,
+},
+
 
   // ---------------------------------------------------------------------------
   // EXAMPLE / TEMPLATE (active: false so it stays hidden).

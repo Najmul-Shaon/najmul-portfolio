@@ -108,7 +108,7 @@ const CTAButtons = ({ project }) => (
         href={project.demo}
         className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-4 py-2 text-[10px] sm:text-xs font-medium uppercase tracking-wide text-white hover:gap-2.5 transition-all duration-200 no-underline hover:no-underline hover:text-white"
       >
-        Live Demo <BsBoxArrowUpRight size={11} />
+        Live <BsBoxArrowUpRight size={11} />
       </a>
     )}
     {project?.code && (

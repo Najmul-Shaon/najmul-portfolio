@@ -116,7 +116,7 @@ const Experience = () => {
                               <img
                                 src={experience?.companyLogo}
                                 alt={experience?.company}
-                                className="w-9 h-9 object-contain rounded-md"
+                                className="w-16 h-16 object-contain rounded-md"
                               />
                             ) : (
                               <BsPersonWorkspace size={36} />
