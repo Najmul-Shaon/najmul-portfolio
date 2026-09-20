@@ -175,7 +175,7 @@ export const projectsData = [
   image: "/project-screenshots/elmates/elmate.png",
   images: [], // optional — add multiple screenshot paths here to enable the slider; falls back to `image` if empty
   active: true,
-  rank: 5,
+  rank: 10,
   highlights: [
     "Customized and maintained a WooCommerce-based stationery e-commerce website",
     "Developed and optimized product, category, and collection structures for better navigation and SEO",
@@ -332,12 +332,13 @@ export const projectsData = [
   ],
 
   role: "Web Developer / Technical Supervisor",
+    code: "https://github.com/Najmul-Shaon/mouldique",
   demo: "https://mouldique.com",
   image: "/project-screenshots/mouldique/m-home.png",
   images: [],
 
   active: true,
-  rank: 8,
+  rank: 9,
 
   highlights: [
     "Planned and supervised the development of a custom e-commerce platform for 3D casting products",
