@@ -14,7 +14,7 @@ const Projects = () => {
       if (a?.rank == null) return 1;
       if (b?.rank == null) return -1;
 
-      return a.rank - b.rank;
+      return b.rank - a.rank;
     });
 
   const hasMore = (sortedProjects?.length ?? 0) > INITIAL_VISIBLE_COUNT;
